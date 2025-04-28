@@ -1,0 +1,28 @@
+﻿@model List<CantidadInscriptosObraSocial>
+
+
+@{
+    ViewData["Title"] = "Pacientes de cada obra social";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Obra Social</th>
+            <th>Cantidad de Pacientes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreObraSocial</td>
+                <td>@item.CantidadPacientes</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="text-align: center; margin-top: 20px;">
+    <button style="background-color: cornflowerblue; color: azure" onclick="location.href='/Paciente/ListaPaciente'">Lista de pacientes</button>
+</div>
+

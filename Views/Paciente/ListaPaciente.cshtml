@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Parcial1_Programacion3_28_4.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Lista de Paciente";
+}
+
+<h1>Lista de pacientes</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sintomas)
+            </th>
+            <th>
+                Obra Social
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @if (Model != null && Model.Count() > 0)
+        {
+            @foreach (var item in Model) 
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombrePaciente)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Edad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sintomas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ObraSocialElegida.NombreObraSocial)
+                        </td>
+                    </tr>
+            }
+        }
+        else
+        {
+            <h2 style="color: darkorange">La lista se encuentra vacía</h2>
+        }
+    </tbody>
+</table>
+<div style="text-align: center; margin-top: 20px;">
+    <button style="background-color: cornflowerblue; color: azure" onclick="location.href='/Paciente/Create'">Agregar paciente</button>
+    <button style="background-color: cornflowerblue; color: azure" onclick="location.href='/Paciente/ListarInscriptos'">Cantidad de pacientes por obra social</button>
+</div>
+
